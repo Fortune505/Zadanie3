@@ -1,28 +1,28 @@
 ﻿using System;
 using System.ComponentModel;
-class B
+class MainProgram
 {
     static void Main()
     {
-        BPLA.Elllo();
+        UserInterace.PrintMenu();
     }
 }
-class BPLA
+class UserInterace
 {
-    public static void Elllo()
+    public static void PrintMenu()
     {
         Console.WriteLine("Введите текст для шифровки (замена муха на слона):");
         string text = Console.ReadLine();
 
-        string shifr = LogicBPLA.GetMena(text);
+        string encryptedText = Logic.GetEncryptedText(text);
         Console.WriteLine("Результат:");
-        Console.WriteLine(shifr);
+        Console.WriteLine(encryptedText);
     }
 }
-public class LogicBPLA
+public class Logic
 {
     
-    public static string GetMena(string text)
+    public static string GetEncryptedText(string text)
     {
         if (string.IsNullOrEmpty(text)) return "";
         return text.Replace("муха", "слон");
