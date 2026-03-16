@@ -6,41 +6,52 @@ namespace TestProject1
         //public void Setup()
         //{
         //}
-        [Test]
-        public void GetEncryptedTextTest()
+        //[Test]
+        //public void GetEncryptedTextTest()
+        //{
+        //    string text = "Ћетит муха";
+        //    string expectedResult = "Ћетит слон";
+        //    string encryptedText = Logic.GetEncryptedText(text);
+
+        //    Assert.That(encryptedText, Is.EqualTo(expectedResult));
+        //}
+
+        //[Test]
+        //public void GetEncryptedTextTestWithoutFlies()
+        //{
+        //    string text = "Ћетит кто-то в две башни";
+        //    string expectedResult = "Ћетит кто-то в две башни";
+        //    string encryptedText = Logic.GetEncryptedText(text);
+
+        //    Assert.That(encryptedText, Is.EqualTo(expectedResult));
+        //}
+
+        //[Test]
+        //public void GetEncryptedTextNoText()
+        //{
+        //    string text = null;
+        //    string expectedResult = "";
+        //    string encryptedText = Logic.GetEncryptedText(text);
+
+        //    Assert.That(encryptedText, Is.EqualTo(expectedResult));
+        //}
+
+        //[Test]
+        //public void GetEncryptedTextTestLotFlies()
+        //{
+        //    string text = "муха, муха, муха, муха, комар!";
+        //    string expectedResult = "слон, слон, слон, слон, комар!";
+        //    string encryptedText = Logic.GetEncryptedText(text);
+
+        //    Assert.That(encryptedText, Is.EqualTo(expectedResult));
+        //}
+
+        [TestCase("Ћетит муха", "Ћетит слон")]
+        [TestCase("Ћетит кто-то в две башни", "Ћетит кто-то в две башни")]
+        [TestCase("", "")]
+        [TestCase("муха, муха, муха, муха, комар!", "слон, слон, слон, слон, комар!")]
+        public void GetEncryptedTextValidAndInvalidStringReturnsCorrectResultTest(string text, string expectedResult)
         {
-            string text = "Ћетит муха";
-            string expectedResult = "Ћетит слон";
-            string encryptedText = Logic.GetEncryptedText(text);
-
-            Assert.That(encryptedText, Is.EqualTo(expectedResult));
-        }
-
-        [Test]
-        public void GetEncryptedTextTestWithoutFlies()
-        {
-            string text = "Ћетит кто-то в две башни";
-            string expectedResult = "Ћетит кто-то в две башни";
-            string encryptedText = Logic.GetEncryptedText(text);
-
-            Assert.That(encryptedText, Is.EqualTo(expectedResult));
-        }
-
-        [Test]
-        public void GetEncryptedTextNoText()
-        {
-            string text = null;
-            string expectedResult = "";
-            string encryptedText = Logic.GetEncryptedText(text);
-
-            Assert.That(encryptedText, Is.EqualTo(expectedResult));
-        }
-
-        [Test]
-        public void GetEncryptedTextTestLotFlies()
-        {
-            string text = "муха, муха, муха, муха, комар!";
-            string expectedResult = "слон, слон, слон, слон, комар!";
             string encryptedText = Logic.GetEncryptedText(text);
 
             Assert.That(encryptedText, Is.EqualTo(expectedResult));
